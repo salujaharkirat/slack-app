@@ -32,7 +32,8 @@ export const SignUpCard = ({ setState }: SignUpCardProps) => {
     try {
       await signIn("password", { email, password, flow: "signUp"});
     } catch (error) {
-      setError("Something went wrong"); 
+      setError("Something went wrong");
+      console.log(error);
     } finally {
       setPending(false);
     }

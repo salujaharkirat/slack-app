@@ -26,7 +26,8 @@ export const SignInCard = ({ setState }: SignInCardProps) => {
     try {
       await signIn("password", { email, password, flow: "signIn"});
     } catch (error) {
-      setError("Invalid email id or password"); 
+      setError("Invalid email id or password");
+      console.error(error);
     } finally {
       setPending(false);
     }
