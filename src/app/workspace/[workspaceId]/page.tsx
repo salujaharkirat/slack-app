@@ -1,12 +1,15 @@
-const WorkspaceIdPage =  async ({
-  params,
-}: {
-  params: Promise<{ workspaceId: string }>
-}) => {
-  const { workspaceId } = await params;
+"use client";
+
+import { useGetWorkspace } from "@/features/workspaces/api/use-get-workspace";
+import { useWorkspaceId } from "@/hooks/use-workspace-id";
+
+const WorkspaceIdPage =  () => {
+  const workspaceId = useWorkspaceId();
+  const { data } = useGetWorkspace({ id: workspaceId });
+
   return (
     <div>
-      Id: {workspaceId}
+      Id: {JSON.stringify(data)}
     </div>
   );
 };
