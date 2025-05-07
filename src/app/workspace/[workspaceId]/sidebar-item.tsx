@@ -19,7 +19,7 @@ const sidebarItemVariants = cva(
       variant: "default",
     },
   },
-)
+);
 
 interface SideBarItemProps {
   label: string;
