@@ -23,7 +23,7 @@ export const create = mutation({
       .unique();
     
     if (!member || member.role !== "admin") {
-      throw new Error("authorized");
+      throw new Error("unauthorized");
     }
 
     const parsedName = args.name.replace(/\s+g/, '-').toLowerCase();
