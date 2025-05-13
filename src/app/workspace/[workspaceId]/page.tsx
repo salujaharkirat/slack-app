@@ -39,7 +39,11 @@ const WorkspaceIdPage =  () => {
     workspace,
     member,
     memberLoading,
-    isAdmin
+    isAdmin,
+    open,
+    setOpen,
+    router,
+    workspaceId
   ]);
 
   if (workspaceLoading || channelsLoading || memberLoading) {
