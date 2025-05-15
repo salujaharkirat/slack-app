@@ -34,7 +34,7 @@ const schema = defineSchema({
     workspaceId: v.id("workspaces"),
     channelId: v.optional(v.id("channels")), // DM will have no channel id
     parentMessageId: v.optional(v.id("messages")), // To manage threads
-    updatedAt: v.number(),
+    updatedAt: v.optional(v.number()),
     conversationId: v.optional(v.id("conversations")),
   })
   .index("by_workspace_id", ["workspaceId"])
@@ -45,7 +45,8 @@ const schema = defineSchema({
     "channelId",
     "parentMessageId",
     "conversationId"
-  ]),
+  ])
+  .index("by_parent_message_id", ["parentMessageId"]),
   reactions: defineTable({
     workspaceId: v.id("workspaces"),
     messageId: v.id("messages"),
