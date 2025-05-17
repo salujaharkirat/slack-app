@@ -2,6 +2,9 @@ import { differenceInMinutes, format, isToday, isYesterday } from "date-fns"
 
 import { GetMessagesReturnType } from "@/features/messages/api/use-get-messages";
 import { Message } from "./message";
+import { ChannelHero } from "./channel-hero";
+import { useState } from "react";
+import { Id } from "../../convex/_generated/dataModel";
 
 const TIME_THRESHOLD = 5;
 
@@ -31,14 +34,16 @@ const formatDatelabel = (dateStr: string) => {
 export const MessageList = ({
   // memberName,
   // memberImage,
-  // channelName,
-  // channelCreationTime,
+  channelName,
+  channelCreationTime,
   data,
-  // variant = "channel",
+  variant = "channel",
   // loadMore,
   // isLoadingMore,
   // canLoadMore,
 } : MessageListProps) => {
+  const [editingId, setEditingId] = useState<Id<"messages"> | null>(null);
+
   const groupedMessages = data?.reduce(
     (groups, message) => {
       const date = new Date(message._creationTime);
@@ -81,10 +86,10 @@ export const MessageList = ({
                 reactions={message.reactions}
                 body={message.body}
                 image={message.image}
-                isEditing={false}
-                setEditingId={() => {}}
+                isEditing={editingId === message._id}
+                setEditingId={setEditingId}
                 isCompact={isCompact}
-                hideThreadButton={false}
+                hideThreadButton={variant === "thread"}
                 updatedAt={message.updatedAt}
                 createdAt={message._creationTime}
                 threadCount={message.threadCount}
@@ -95,6 +100,13 @@ export const MessageList = ({
           )}
         </div>
       ))}
+      { variant === "channel" && channelName && channelCreationTime && (
+        <ChannelHero 
+          name={channelName}
+          creationTime={channelCreationTime}
+
+        />
+      )}
     </div>
   )
 }
