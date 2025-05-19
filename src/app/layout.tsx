@@ -1,3 +1,4 @@
+import { NuqsAdapter } from 'nuqs/adapters/next/app';
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 
@@ -33,15 +34,17 @@ export default function RootLayout({
   return (
     <ConvexAuthNextjsServerProvider>
       <html lang="en">
+      <NuqsAdapter>
         <body
-          className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-        >
+            className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+          >
           <ConvexClientProvider>
             <Modals />
             <Toaster />
             {children}
           </ConvexClientProvider>
         </body>
+      </NuqsAdapter>
       </html>
     </ConvexAuthNextjsServerProvider>
   );
