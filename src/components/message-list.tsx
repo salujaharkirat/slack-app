@@ -1,4 +1,4 @@
-import { differenceInMinutes, format, isToday, isYesterday } from "date-fns"
+import { differenceInMinutes, format } from "date-fns"
 
 import { GetMessagesReturnType } from "@/features/messages/api/use-get-messages";
 import { Message } from "./message";
@@ -8,8 +8,7 @@ import { Id } from "../../convex/_generated/dataModel";
 import { useWorkspaceId } from "@/hooks/use-workspace-id";
 import { useCurrentMember } from "@/features/members/api/use-current-member";
 import { Loader } from "lucide-react";
-
-const TIME_THRESHOLD = 5;
+import { formatDatelabel, TIME_THRESHOLD } from "@/lib/date";
 
 interface MessageListProps {
   memberName?: string;
@@ -23,16 +22,6 @@ interface MessageListProps {
   canLoadMore: boolean;
 };
 
-const formatDatelabel = (dateStr: string) => {
-  const date = new Date(dateStr);
-  if (isToday(date)) {
-    return "Today";
-  }
-  if (isYesterday(date)) {
-    return "Yesterday";
-  }
-  return format(date, "EEEE, MMMM d");
-}
 
 export const MessageList = ({
   // memberName,
@@ -61,7 +50,8 @@ export const MessageList = ({
       return groups;
     },
     {} as Record<string, typeof data>
-  )
+  );
+
   return (
     <div className="flex-1 flex flex-col-reverse pb-4 overflow-y-auto messages-scrollbar">
       {Object.entries(groupedMessages || {}).map(([dateKey, messages]) => (
