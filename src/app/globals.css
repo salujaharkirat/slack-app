@@ -179,3 +179,7 @@ body,
   scrollbar-width: thin;
   scrollbar-color: #dcdcdc #f8f8f8;
 }
+
+button {
+  cursor: pointer;
+}
