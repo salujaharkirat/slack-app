@@ -9,6 +9,7 @@ import { useWorkspaceId } from "@/hooks/use-workspace-id";
 import { useCurrentMember } from "@/features/members/api/use-current-member";
 import { Loader } from "lucide-react";
 import { formatDatelabel, TIME_THRESHOLD } from "@/lib/date";
+import { ConversationHero } from "./conversation-hero";
 
 interface MessageListProps {
   memberName?: string;
@@ -24,8 +25,8 @@ interface MessageListProps {
 
 
 export const MessageList = ({
-  // memberName,
-  // memberImage,
+  memberName,
+  memberImage,
   channelName,
   channelCreationTime,
   data,
@@ -128,6 +129,13 @@ export const MessageList = ({
         <ChannelHero
           name={channelName}
           creationTime={channelCreationTime}
+
+        />
+      )}
+      {variant === "conversation" && memberName && (
+        <ConversationHero
+          name={memberName}
+          image={memberImage}
 
         />
       )}
