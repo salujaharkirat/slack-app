@@ -50,7 +50,7 @@ const formatFullTime = (date: Date) => {
 
 export const Message =({
   id,
-  // memberId,
+  memberId,
   authorImage,
   authorName = "Member",
   isAuthor,
@@ -68,7 +68,7 @@ export const Message =({
   threadTimestamp,
   threadName,
 }: MessageProps) => {
-  const { parentMessageId, onOpenMessage, onClose } = usePanel();
+  const { parentMessageId, onOpenMessage, onOpenProfile, onClose } = usePanel();
   const [ConfirmDialog, confirm] = useConfirm(
     "Delete message?",
     "Are you sure you want to delete this message? This cannot be undone."
@@ -198,7 +198,7 @@ export const Message =({
             "bg-rose-500/50 transorm transition-all scale-y-0 origin-bottom duration-200"
         )}>
         <div className="flex items-start gap-2">
-          <button>
+          <button onClick={() => onOpenProfile(memberId)}>
             <Avatar className="rounded-md">
               <AvatarImage src={authorImage} />
               <AvatarFallback className="rounded-sm bg-sky-500 text-white text-xs">
@@ -219,7 +219,10 @@ export const Message =({
           ): (
           <div className="flex flex-col w-full overflow-hidden">
             <div className="text-sm">
-              <button className="font-bold text-primary hover:underline">
+              <button 
+                className="font-bold text-primary hover:underline"
+                onClick={() => onOpenProfile(memberId)}
+              >
                 {authorName}
               </button>
               <span>&nbsp;</span>
