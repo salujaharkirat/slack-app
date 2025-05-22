@@ -12,10 +12,8 @@ Welcome to Slack Clone, a full-stack real-time messaging application inspired by
 
 ## ⚙️ Tech Stack
 
-- **Frontend:** Next.js, ReactJS, TypeScript, ShadCN UI, , Tailwind CSS
-- **Backend:** Drizzle ORM, Hono
-- **Auth:** Clerk Authentication
-- **Payments:** Stripe
+- **Frontend:** Next.js, ReactJS, TypeScript, ShadCN UI, Jotai, Nuqs, Quill
+- **Backend:** Convex
 - **Hosting:** Vercel
 
 ---
