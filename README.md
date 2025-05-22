@@ -1,36 +1,66 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 💸Slack Clone – Full Stack Slack application with the latest tech stack.
 
-## Getting Started
+Welcome to Slack Clone, a full-stack real-time messaging application inspired by Slack.
 
-First, run the development server:
+---
+
+## 📸 Demo
+
+🌐 [Live Demo](https://slack-app-sage.vercel.app/)
+
+---
+
+## ⚙️ Tech Stack
+
+- **Frontend:** Next.js, ReactJS, TypeScript, ShadCN UI, , Tailwind CSS
+- **Backend:** Drizzle ORM, Hono
+- **Auth:** Clerk Authentication
+- **Payments:** Stripe
+- **Hosting:** Vercel
+
+---
+
+## 🔥 Features
+
+  - Workspaces: Create and manage multiple workspaces.
+  - Channels & Direct Messages: Communicate in public channels or private DMs.
+  - Role-Based Access Control: Admins, moderators, and members with tailored permissions.
+  - Real-Time Messaging: Instant message delivery with infinite scroll.
+  - User Management: Invite, edit, and manage workspace members.
+
+
+---
+
+## 🚀 Getting Started
+
+### 1. Clone the repo
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/salujaharkirat/slack-app.git
+cd slack-app
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 2. Confirm env
+```
+# Deployment used by `npx convex dev`
+CONVEX_DEPLOYMENT=
+NEXT_PUBLIC_CONVEX_URL=
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### 3. Install dependencies
+`bun install`
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### 3. Run development Server
+`bun run dev`
 
-## Learn More
+### 4. Database
 
-To learn more about Next.js, take a look at the following resources:
+```
+bunx convex dev
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🙌 Acknowledgments 
+Huge thanks to [Code With Antonio](https://www.youtube.com/@codewithantonio) for making full-stack development education accessible and inspiring.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
-## Deploy on Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
