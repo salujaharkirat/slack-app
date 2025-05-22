@@ -1,4 +1,4 @@
-# 💸Slack Clone – Full Stack Slack application with the latest tech stack.
+# 🚀Slack Clone – Full Stack Slack application with the latest tech stack.
 
 Welcome to Slack Clone, a full-stack real-time messaging application inspired by Slack.
 
